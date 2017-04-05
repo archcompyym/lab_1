@@ -1,25 +1,27 @@
 import pickle
 
-'''Function that loads data from a file'''
 def Fillin():
+    """Function that loads data from a file"""
     data = [{}]
-    f = open("Db.txt", "r");
+    f = open("db.txt", "r")
     data = pickle.load(f)
     f.close()
     return data
 
-'''Function that introduces information about a particular day'''
+
 def Out_day(cal,y,m,d):
+    """Function that introduces information about a particular day"""
     print "Enter year, month, day (example 2017 march 23):"
     for i in cal :
        if (y == i['year']) and (m == i['month']) and (d == i['day']) :
             print 'At ', y, m, d
             print  i['weather'],i['temperature'],' wimd',i['wind']
        else:
-            print "Day not found :("
+            print "Day not found :( Didn\'t need people being told that the"
 
-'''Average temperature calculation function'''
+            
 def Temp(cal,y,m):
+    """Average temperature calculation function"""
     t=0
     d=0
     for i in cal:
@@ -31,8 +33,9 @@ def Temp(cal,y,m):
     else:
         return None
 
-'''Output function average temperature'''
+
 def Midl_temp(cal):
+    """Output function average temperature"""
     print "Enter year, month (example 2017 march ):"
     y = raw_input("Year = ")
     m = raw_input("Month = ")
@@ -42,8 +45,11 @@ def Midl_temp(cal):
         print "Data not available"
 
 
-'''Display all days'''
 def All_days(cal):
+    """Display all days"""
     for i in cal:
-        print i['year'],  i['month'], i['day'],'\0'
-        print i['weather'],i['temperature'],' wimd',i['wind'],'(m/s)','\0','\0'
+        print i['year'],  i['month'], i['day']
+        print i['weather'],i['temperature'],' wimd',i['wind'],'(m/s)'
+
+
+#Fillin()
