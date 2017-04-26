@@ -3,7 +3,7 @@ import In_out
 
 
 def mode():
-    """Mode"""
+    """Mode choice elements menu"""
     print "\nSelect:"
     print " 1. Display all days"
     print " 2. Find day"
@@ -16,36 +16,43 @@ def mode():
     print "\nChoice: ",
     a = raw_input()
 
-    if (not a.isdigit()) or int(a) < 0 and int (a) > 6 :
+    if (not a.isdigit()) or int(a) < 0 and int(a) > 6:
         print "Input Error, try again!"
         a = mode()
-    
     return a
 
-def day ():
-    """Enter day"""
-    y=raw_input("Year: ")
-    m=raw_input("Month: ")
-    d=raw_input("Day: ")
-    return y,m,d
+
+def day():
+    """Enter date"""
+    y = raw_input("Year: ")
+    m = raw_input("Month: ")
+    d = raw_input("Day: ")
+    return y, m, d
+
+def weath():
+    """Enter weather, temperature and wimd"""
+    w = raw_input('weather: ')
+    t = raw_input('temperature: ')
+    wind = raw_input('wimd(m/s): ')
+    return w, t, wind
 
 
-def selector(cal,a):
-    "Select"
+def selector(cal, a):
+    "Select enter value in mode"
     print "\nEnter year, month, day (example 2017 march 23):"
     y, m, d = day()
-    if check_date(y, m, d):
-        if int(a)==2:
-            In_out.Out_day(cal,y,m,d)
-        if int(a)==3:
-            Editor.add_el(cal,y,m,d)
-        if int(a)==4:
-            Editor.del_el(cal,y,m,d)
-        if int(a)==5:
-            Editor.del_el(cal,y,m,d)
+    if In_out.check_date(y, m, d):
+        if int(a) == 2:
+            In_out.Out_day(cal, y, m, d)
+        if int(a) == 3:
+            Editor.add_el(cal, y, m, d, weath())
+        if int(a) == 4:
+            Editor.del_el(cal, y, m, d)
+        if int(a) == 5:
+            Editor.del_el(cal, y, m, d)
             Editor.add_el(cal, y, m, d)
     else:
-         print "Incorrect input date!"   
+        print "Incorrect input date!"
 
 
 def menu(cal):
