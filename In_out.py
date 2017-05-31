@@ -1,14 +1,3 @@
-import pickle
-
-
-def Fillin():
-    """Function that loads data from a file"""
-    data = [{}]
-    f = open("db.txt", "r")
-    data = pickle.load(f)
-    f.close()
-    return data
-
 
 def check_date(y, m, d=None):
     """Check correct input data.

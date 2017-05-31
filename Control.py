@@ -29,6 +29,7 @@ def day():
     d = raw_input("Day: ")
     return y, m, d
 
+
 def weath():
     """Enter weather, temperature and wimd"""
     w = raw_input('weather: ')
@@ -45,7 +46,8 @@ def selector(cal, a):
         if int(a) == 2:
             In_out.Out_day(cal, y, m, d)
         if int(a) == 3:
-            Editor.add_el(cal, y, m, d, weath())
+            w, t, wind = weath()
+            Editor.add_el(cal, y, m, d, w, t, wind)
         if int(a) == 4:
             Editor.del_el(cal, y, m, d)
         if int(a) == 5:
@@ -53,6 +55,7 @@ def selector(cal, a):
             Editor.add_el(cal, y, m, d)
     else:
         print "Incorrect input date!"
+    return cal
 
 
 def menu(cal):
@@ -66,4 +69,4 @@ def menu(cal):
         else:
             selector(cal, f)
         f = int(mode())
-    return 0
+    return cal
