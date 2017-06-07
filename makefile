@@ -21,7 +21,7 @@ pep8:
 	pep8 serialize.py tests.py
 
 pyflakes:
-	pyflakes serialize.py tests.py
+	pyflakes serialize.py
 
 cover:
 	coverage run tests.py
